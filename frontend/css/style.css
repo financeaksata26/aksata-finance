@@ -1,0 +1,456 @@
+/* ============================================================
+   style.css – Aksata Financial Dashboard
+   ============================================================ */
+
+:root {
+  --sidebar-w      : 260px;
+  --shopee-color   : #EE4D2D;
+  --tiktok-color   : #161823;
+  --primary        : #1a237e;
+  --primary-light  : #3949ab;
+  --success        : #2e7d32;
+  --accent         : #f57f17;
+  --bg             : #f0f2f5;
+  --card-bg        : #ffffff;
+  --text-main      : #1a1a2e;
+  --text-muted     : #6b7280;
+  --border         : #e5e7eb;
+  --shadow         : 0 2px 12px rgba(0,0,0,0.08);
+  --shadow-hover   : 0 6px 24px rgba(0,0,0,0.14);
+  --radius         : 14px;
+  --radius-sm      : 8px;
+  --font           : 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* ── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family  : var(--font);
+  background   : var(--bg);
+  color        : var(--text-main);
+  min-height   : 100vh;
+  overflow-x   : hidden;
+}
+
+/* ── LOGIN PAGE ───────────────────────────────────────────── */
+.login-wrapper {
+  min-height    : 100vh;
+  display       : flex;
+  align-items   : center;
+  justify-content: center;
+  background    : linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
+  padding       : 1rem;
+}
+
+.login-card {
+  background    : #fff;
+  border-radius : var(--radius);
+  padding       : 2.5rem 2rem;
+  width         : 100%;
+  max-width     : 420px;
+  box-shadow    : 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.login-logo {
+  width         : 72px;
+  height        : 72px;
+  background    : linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius : 18px;
+  display       : flex;
+  align-items   : center;
+  justify-content: center;
+  margin        : 0 auto 1.5rem;
+  box-shadow    : 0 8px 24px rgba(26,35,126,0.3);
+}
+
+.login-logo i { font-size: 2rem; color: white; }
+
+.login-title {
+  text-align    : center;
+  font-size     : 1.5rem;
+  font-weight   : 700;
+  color         : var(--primary);
+  margin-bottom : 0.25rem;
+}
+
+.login-subtitle {
+  text-align    : center;
+  color         : var(--text-muted);
+  font-size     : 0.875rem;
+  margin-bottom : 2rem;
+}
+
+/* ── APP LAYOUT ───────────────────────────────────────────── */
+.app-wrapper { display: flex; min-height: 100vh; }
+
+/* Sidebar */
+#sidebar {
+  width           : var(--sidebar-w);
+  min-height      : 100vh;
+  background      : linear-gradient(180deg, #1a237e 0%, #283593 100%);
+  color           : #fff;
+  display         : flex;
+  flex-direction  : column;
+  position        : fixed;
+  top             : 0;
+  left            : 0;
+  z-index         : 1000;
+  transition      : transform 0.3s ease;
+}
+
+.sidebar-brand {
+  padding         : 1.5rem 1.25rem 1rem;
+  border-bottom   : 1px solid rgba(255,255,255,0.1);
+}
+
+.brand-logo {
+  width           : 42px;
+  height          : 42px;
+  background      : rgba(255,255,255,0.15);
+  border-radius   : 10px;
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  margin-bottom   : 0.75rem;
+}
+
+.brand-logo i { font-size: 1.4rem; }
+
+.brand-name { font-size: 1.1rem; font-weight: 700; }
+.brand-sub  { font-size: 0.7rem; opacity: 0.65; }
+
+.sidebar-menu { padding: 1rem 0.75rem; flex: 1; }
+
+.menu-label {
+  font-size    : 0.65rem;
+  font-weight  : 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity      : 0.5;
+  padding      : 1rem 0.75rem 0.5rem;
+}
+
+.nav-link {
+  display         : flex;
+  align-items     : center;
+  gap             : 0.75rem;
+  padding         : 0.65rem 0.75rem;
+  border-radius   : var(--radius-sm);
+  color           : rgba(255,255,255,0.75) !important;
+  font-size       : 0.875rem;
+  font-weight     : 500;
+  transition      : all 0.2s;
+  margin-bottom   : 2px;
+  text-decoration : none;
+}
+
+.nav-link i { font-size: 1.1rem; width: 20px; text-align: center; }
+
+.nav-link:hover {
+  background : rgba(255,255,255,0.12);
+  color      : #fff !important;
+}
+
+.nav-link.active {
+  background : rgba(255,255,255,0.2);
+  color      : #fff !important;
+  font-weight: 600;
+  box-shadow : 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.sidebar-footer {
+  padding     : 1rem;
+  border-top  : 1px solid rgba(255,255,255,0.1);
+}
+
+/* Main content */
+#mainContent {
+  margin-left  : var(--sidebar-w);
+  flex         : 1;
+  min-height   : 100vh;
+  display      : flex;
+  flex-direction: column;
+}
+
+/* Top navbar */
+.top-nav {
+  background    : #fff;
+  padding       : 0.875rem 1.5rem;
+  display       : flex;
+  align-items   : center;
+  justify-content: space-between;
+  box-shadow    : 0 1px 0 var(--border);
+  position      : sticky;
+  top           : 0;
+  z-index       : 100;
+}
+
+.top-nav-title { font-size: 1rem; font-weight: 600; color: var(--text-main); }
+
+.page-body { padding: 1.5rem; flex: 1; }
+
+/* ── CARDS ────────────────────────────────────────────────── */
+.card {
+  background    : var(--card-bg);
+  border        : none;
+  border-radius : var(--radius);
+  box-shadow    : var(--shadow);
+}
+
+.card-header-custom {
+  padding       : 1rem 1.25rem 0.75rem;
+  border-bottom : 1px solid var(--border);
+  display       : flex;
+  align-items   : center;
+  justify-content: space-between;
+}
+
+.card-header-custom h6 { font-weight: 600; margin: 0; font-size: 0.9rem; }
+
+/* Metric cards */
+.metric-card {
+  background    : var(--card-bg);
+  border-radius : var(--radius);
+  padding       : 1.25rem;
+  box-shadow    : var(--shadow);
+  transition    : transform 0.2s, box-shadow 0.2s;
+  position      : relative;
+  overflow      : hidden;
+}
+
+.metric-card:hover {
+  transform   : translateY(-2px);
+  box-shadow  : var(--shadow-hover);
+}
+
+.metric-card::before {
+  content       : '';
+  position      : absolute;
+  top           : 0; left: 0; right: 0;
+  height        : 4px;
+}
+
+.metric-card.shopee::before { background: var(--shopee-color); }
+.metric-card.tiktok::before { background: var(--tiktok-color); }
+.metric-card.total::before  { background: var(--primary); }
+.metric-card.orders::before { background: var(--accent); }
+
+.metric-icon {
+  width         : 48px;
+  height        : 48px;
+  border-radius : 12px;
+  display       : flex;
+  align-items   : center;
+  justify-content: center;
+  font-size     : 1.4rem;
+  margin-bottom : 0.75rem;
+}
+
+.metric-icon.shopee { background: #fff0ee; color: var(--shopee-color); }
+.metric-icon.tiktok { background: #f0f0f0; color: var(--tiktok-color); }
+.metric-icon.total  { background: #e8eaf6; color: var(--primary); }
+.metric-icon.orders { background: #fff8e1; color: var(--accent); }
+
+.metric-value {
+  font-size    : 1.5rem;
+  font-weight  : 700;
+  color        : var(--text-main);
+  line-height  : 1.2;
+}
+
+.metric-label {
+  font-size    : 0.78rem;
+  color        : var(--text-muted);
+  margin-top   : 0.25rem;
+}
+
+/* ── CHARTS ───────────────────────────────────────────────── */
+.chart-container { position: relative; }
+.chart-container.h-280 { height: 280px; }
+.chart-container.h-320 { height: 320px; }
+.chart-container.h-260 { height: 260px; }
+
+/* ── TABLES ───────────────────────────────────────────────── */
+.table-responsive { border-radius: var(--radius-sm); overflow: hidden; }
+
+.table {
+  font-size     : 0.82rem;
+  margin-bottom : 0;
+}
+
+.table thead th {
+  background    : #f8f9fc;
+  font-weight   : 600;
+  font-size     : 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color         : var(--text-muted);
+  border-bottom : 2px solid var(--border);
+  white-space   : nowrap;
+  padding       : 0.65rem 0.75rem;
+}
+
+.table tbody tr:hover { background: #f8f9fc; }
+.table td { padding: 0.6rem 0.75rem; vertical-align: middle; }
+
+/* ── UPLOAD PAGE ──────────────────────────────────────────── */
+.upload-zone {
+  border        : 2px dashed var(--border);
+  border-radius : var(--radius-sm);
+  padding       : 1.5rem;
+  text-align    : center;
+  cursor        : pointer;
+  transition    : all 0.2s;
+  background    : #fafafa;
+}
+
+.upload-zone:hover, .upload-zone.drag-over {
+  border-color  : var(--primary);
+  background    : #e8eaf6;
+}
+
+.upload-zone input[type="file"] {
+  position      : absolute;
+  inset         : 0;
+  opacity       : 0;
+  cursor        : pointer;
+  width         : 100%;
+  height        : 100%;
+}
+
+.upload-platform-card {
+  border        : 1px solid var(--border);
+  border-radius : var(--radius);
+  overflow      : hidden;
+}
+
+.upload-platform-header {
+  padding       : 0.875rem 1.25rem;
+  display       : flex;
+  align-items   : center;
+  gap           : 0.75rem;
+  font-weight   : 600;
+}
+
+.upload-platform-header.shopee { background: #fff0ee; color: var(--shopee-color); }
+.upload-platform-header.tiktok { background: #f0f0f0; color: var(--tiktok-color); }
+
+.upload-platform-body { padding: 1rem; background: #fff; }
+
+.upload-slot {
+  position      : relative;
+  border        : 2px dashed var(--border);
+  border-radius : var(--radius-sm);
+  padding       : 1rem;
+  margin-bottom : 0.75rem;
+  transition    : all 0.2s;
+  background    : #fafafa;
+}
+
+.upload-slot:hover { border-color: var(--primary-light); background: #e8eaf6; }
+.upload-slot:last-child { margin-bottom: 0; }
+
+.upload-slot label {
+  font-size    : 0.8rem;
+  font-weight  : 600;
+  color        : var(--text-muted);
+  margin-bottom: 0.5rem;
+  display      : block;
+}
+
+.upload-slot input[type="file"] {
+  font-size : 0.82rem;
+  width     : 100%;
+}
+
+/* ── BADGES ───────────────────────────────────────────────── */
+.badge { font-weight: 500; letter-spacing: 0.3px; }
+
+/* ── SUMMARY STRIP ────────────────────────────────────────── */
+.summary-strip {
+  display       : flex;
+  gap           : 1rem;
+  flex-wrap     : wrap;
+  padding       : 1rem 1.25rem;
+  background    : #f8f9fc;
+  border-radius : var(--radius-sm);
+  margin-bottom : 1rem;
+}
+
+.summary-item { display: flex; flex-direction: column; }
+.summary-item .s-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+.summary-item .s-value { font-size: 1rem; font-weight: 700; }
+
+/* ── FINANCIAL REPORT ─────────────────────────────────────── */
+.fin-row {
+  display       : flex;
+  justify-content: space-between;
+  padding       : 0.5rem 0;
+  border-bottom : 1px solid var(--border);
+  font-size     : 0.875rem;
+}
+
+.fin-row:last-child { border-bottom: none; }
+.fin-row.total-row  { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
+.fin-row.section-header { font-weight: 600; color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; padding-top: 1rem; }
+
+/* ── LOADING ──────────────────────────────────────────────── */
+.loading-overlay {
+  display       : flex;
+  align-items   : center;
+  justify-content: center;
+  gap           : 0.75rem;
+  padding       : 3rem;
+  color         : var(--text-muted);
+  font-size     : 0.9rem;
+}
+
+/* ── TOAST ────────────────────────────────────────────────── */
+#toastContainer {
+  position      : fixed;
+  bottom        : 1.5rem;
+  right         : 1.5rem;
+  z-index       : 9999;
+  display       : flex;
+  flex-direction: column;
+  gap           : 0.5rem;
+}
+
+/* ── MOBILE RESPONSIVE ────────────────────────────────────── */
+@media (max-width: 991.98px) {
+  #sidebar {
+    transform : translateX(calc(-1 * var(--sidebar-w)));
+    box-shadow: none;
+  }
+  #sidebar.show {
+    transform : translateX(0);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.2);
+  }
+  #mainContent { margin-left: 0; }
+  .page-body   { padding: 1rem; }
+
+  .metric-value { font-size: 1.25rem; }
+  .top-nav-title { display: none; }
+}
+
+@media (max-width: 575.98px) {
+  .metric-card { padding: 1rem; }
+  .summary-strip { gap: 0.75rem; }
+  .summary-item .s-value { font-size: 0.9rem; }
+}
+
+/* ── SCROLLBAR ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c1c5ce; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+/* ── UTILITIES ────────────────────────────────────────────── */
+.gap-section { margin-bottom: 1.5rem; }
+.text-shopee { color: var(--shopee-color) !important; }
+.text-tiktok { color: var(--tiktok-color) !important; }
+.text-primary-dark { color: var(--primary) !important; }
+.fw-600 { font-weight: 600 !important; }
+.fs-12  { font-size: 0.75rem !important; }
+.fs-13  { font-size: 0.8125rem !important; }
